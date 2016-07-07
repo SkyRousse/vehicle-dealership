@@ -24,6 +24,20 @@ describe('Vehicle') do
     end
   end
 
+  describe('#age') do
+    it('returns the age of the vehicle') do
+      test_vehicle_4 = Vehicle.new('Volkswagon', 'Vanagon', 1990)
+      expect(test_vehicle_4.age()).to(eq(26))
+    end
+  end
+
+  describe('#worth_buying?') do
+    it('returns false if the vehicle is not american made and not younger than 16') do
+      test_vehicle_5 = Vehicle.new('Honda', 'Civic', 2006)
+      expect(test_vehicle_5.worth_buying()).to(eq(false))
+    end
+  end
+
   describe('.all') do
     it('starts out as an empty array') do
       expect(Vehicle.all()).to(eq([]))
@@ -38,17 +52,21 @@ describe('Vehicle') do
     end
   end
 
-  describe('#age') do
-    it('returns the age of the vehicle') do
-      test_vehicle_4 = Vehicle.new('Volkswagon', 'Vanagon', 1990)
-      expect(test_vehicle_4.age()).to(eq(26))
+  describe('#id') do
+    it('returns the id of the vehicle') do
+      test_vehicle_7 = Vehicle.new('Toyota', 'Prius', 1995)
+      test_vehicle_7.save()
+      expect(test_vehicle_7.id()).to(eq(2))
     end
   end
 
-  describe('#worth_buying?') do
-    it('returns false if the vehicle is not american made and not younger than 16') do
-      test_vehicle_5 = Vehicle.new('Honda', 'Civic', 2006)
-      expect(test_vehicle_5.worth_buying()).to(eq(false))
+  describe('find') do
+    it('returns a vehicle by its id number') do
+      test_vehicle_8 = Vehicle.new('Subaru', 'Outback', 2010)
+      test_vehicle_8.save()
+      test_vehicle_9 = Vehicle.new('Kia', 'Rio', 2014)
+      test_vehicle_9.save()
+      expect(Vehicle.find(test_vehicle_9.id())).to(eq(test_vehicle_9))
     end
   end
 
