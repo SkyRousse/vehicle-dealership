@@ -30,6 +30,14 @@ describe('Vehicle') do
     end
   end
 
+  describe('#save') do
+    it('adds an object instance of vehicle to the vehicles array') do
+      test_vehicle_6 = Vehicle.new('GM', 'Camero', 1960)
+      test_vehicle_6.save()
+      expect(Vehicle.all()).to(eq([test_vehicle_6]))
+    end
+  end
+
   describe('#age') do
     it('returns the age of the vehicle') do
       test_vehicle_4 = Vehicle.new('Volkswagon', 'Vanagon', 1990)

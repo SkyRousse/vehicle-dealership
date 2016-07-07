@@ -23,6 +23,10 @@ class Vehicle
     @@vehicles
   end
 
+  define_method(:save) do
+    @@vehicles.push(self)
+  end
+
   define_method(:age) do
     current_year = Time.new().year()
     current_year.-(@year)
