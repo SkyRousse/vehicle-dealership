@@ -2,6 +2,9 @@ require('rspec')
 require('vehicle')
 
 describe('Vehicle') do
+  before() do
+    Vehicle.clear()
+  end
 
   describe('#make') do
     it('returns the make of the vehicle') do
@@ -56,7 +59,7 @@ describe('Vehicle') do
     it('returns the id of the vehicle') do
       test_vehicle_7 = Vehicle.new('Toyota', 'Prius', 1995)
       test_vehicle_7.save()
-      expect(test_vehicle_7.id()).to(eq(2))
+      expect(test_vehicle_7.id()).to(eq(1))
     end
   end
 

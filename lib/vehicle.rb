@@ -20,6 +20,10 @@ class Vehicle
     @year
   end
 
+  define_singleton_method(:clear) do
+    @@vehicles = []
+  end
+
   define_method(:id) do
     @id
   end
@@ -53,5 +57,5 @@ class Vehicle
     end
     found_vehicle
   end
-  
+
 end
